@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Average+Sans&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #1c1c1c;
+  color: #eeeeee;
+  padding-bottom: 50px;
+}
+
+h1,h2,h3 {
+  position: relative;
+  z-index: 1;
+  font-family: 'Share Tech', sans-serif;
+  text-align: center;
+  font-weight: 900;
+
+}
+h1 {
+  font-size: 8vw;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3rem;
+}
+
+li {
+  position:relative;
+  z-index: 1;
+  font-family: 'Average Sans', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 100;
+  line-height: 2em;
+  color: #e3cfb6;
+  text-align: justify;
+}
+a, a:visited {
+  color: #b0a68d;
+  transition: color .5s;
+}
+a:hover {
+  color: #8b8673;
+}
+h1.title {
+  vertical-align: middle;
+  padding-top: 25vh;
+}
+
+.section {
+  width: 90vw;
+  min-height: 85vh;
+  margin: 15vh auto;
+}
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 75vh;
+  /* margin-left: 100px;
+  margin-right: 100px; */
+  background-color: #303030;
+}
+
+.whole {
+  grid-column-end: span 2;
+  border: 1px solid green;
+  position: relative;
+  padding: 50px;
+  background-color: #162256;
+}
+.half {
+  grid-column-end: span 1;
+  padding: 30px;
+}
+/* .left {
+  border: 2px solid transparent;
+}
+.left:hover {
+  animation: drawLeftBoxBorder 2s linear forwards;
+}
+.left::after {
+  content: "test";
+}
+@keyframes drawLeftBoxBorder {
+  0% {
+    border-top-color: red;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+  50% {
+    border-top-color: red;
+    border-left-color: red;
+    border-bottom-color: transparent;
+  }
+  100% {
+    border-top-color: red;
+    border-left-color: red;
+    border-bottom-color: red;
+  }
+} */
+.section {
+  border: 0px solid red;
+}
+.left, .right {
+  position: relative;
+}
+.left::before, .left::after, .right::before, .right::after {
+  content: "";
+  position: absolute;
+}
+/*
+Idea/Code adapted from https://codepen.io/maximoou/pen/avKPLO
+uses ::before and ::after for extra elements
+  the extra elements have certain borders defined and take up space of the entire box
+  the "drawing" of the borders is done using an animation that gradually adjusts the width and height of the elements
+*/
+.left::after {
+  top: -5px;
+  right: -2px;
+  width: 100%;
+  height: 100%;
+  border-right: 2px solid #9c0000;
+  border-top: 5px solid #9c0000;
+  visibility: hidden;
+}
+.left::before {
+  top:-5px;
+  left:-5px;
+  width: 100%;
+  height: 100%;
+  border-left: 5px solid #9c0000;
+  border-bottom: 5px solid #9c0000;
+  visibility: hidden;
+}
+.left.animate::after {
+  /* animation: 1.5s midtop 0s ease-in-out forwards; */
+  animation-name: midtop;
+  animation-duration: .5s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.left.animate::before {
+  animation-name: sidebot;
+  animation-duration: .5s;
+  animation-delay: .5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes midtop {
+  0% {
+    width: 0%;
+    height: 0%;
+    visibility: visible;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+}
+@keyframes sidebot {
+  0% {
+    width: 0%;
+    height: 0%;
+    visibility: visible;
+  }
+  50% {
+    width: 0%;
+    height: 100%;
+    visibility: visible;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+}
+
+/* @keyframes midtop {
+  0% {
+    width: 0%;
+    height: 0%;
+    visibility: visible;
+  }
+  25% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+  50% {
+    visibility: visible;
+  }
+  75% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes leftbot {
+  0% {
+    width: 0%;
+    height: 0%;
+    visibility: hidden;
+  }
+  25% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
+    width: 0%;
+    height: 100%;
+  }
+  75% {
+    visibility: visible;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+} */
+.right::before {
+  top: -5px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid #9c0000;
+  border-top: 5px solid #9c0000;
+  visibility: hidden;
+}
+.right::after {
+  top: -5px;
+  right: -5px;
+  width: 100%;
+  height: 100%;
+  border-right: 5px solid #9c0000;
+  border-bottom: 5px solid #9c0000;
+  visibility: hidden;
+
+}
+.right.animate::before {
+  animation: .5s midtop 0s linear forwards;
+}
+.right.animate::after {
+  animation: .5s sidebot .5s linear forwards;
+}
+/* @keyframes midtop {
+  0% {
+    width: 0%;
+    height: 0%;
+    visibility: visible;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+} */
+@keyframes rightbottom {
+  0% {
+    width: 0%;
+    height: 0%;
+    visibility: visible;
+  }
+  50% {
+    width:0%;
+    height: 100%;
+    visibility: visible;
+  }
+  100% {
+      width: 100%;
+      height: 100%;
+      visibility: visible;
+  }
+}
+
+.whole:before {
+  content: "";
+  position: absolute;
+  text-align: center;
+  top:-5px;
+  left:-5px;
+  width: 100%;
+  height: 100%;
+  border-top: 5px solid #9c0000;
+  border-left: 5px solid #9c0000;
+  border-right: 5px solid #9c0000;
+  visibility: hidden;
+}
+
+.whole.animate::before {
+  animation: 1s topSidesBottom 0s linear forwards;
+}
+
+@keyframes topSidesBottom {
+  0% {
+    left:50%;
+    width: 0%;
+    height: 0%;
+    visibility: visible;
+  }
+  50% {
+    left:-5px;
+    width: 100%;
+    height: 0%;
+    visibility: visible;
+  }
+  90% {
+    width:100%;
+    height:100%;
+    border-bottom: transparent;
+    visibility: visible;
+  }
+  100% {
+    width:100%;
+    height:100%;
+    border-bottom: 5px solid #9c0000;
+    visibility: visible;
+  }
+}
