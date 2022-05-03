@@ -63,10 +63,9 @@ h1.title {
 
 .whole {
   grid-column-end: span 2;
-  border: 1px solid green;
   position: relative;
   padding: 50px;
-  background-color: #162256;
+  background-color: #422e2e;
 }
 .half {
   grid-column-end: span 1;
@@ -74,6 +73,15 @@ h1.title {
 }
 .section {
   border: 0px solid red;
+}
+#solution .boxes div {
+  background-color: #283842;
+}
+#sources ul {
+  list-style-type: square;
+}
+#sources .boxes div {
+  background-color: #404030;
 }
 .left, .right {
   position: relative;
