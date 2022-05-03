@@ -1,3 +1,6 @@
+AOS.init({
+  offset: 240,
+});
 document.addEventListener('aos:in', ( {detail} ) => {
   detail.style.animation="";
   for (ele of detail.querySelectorAll(".boxes div")) {
