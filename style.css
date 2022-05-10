@@ -48,7 +48,21 @@ h1.title {
   vertical-align: middle;
   padding-top: 25vh;
 }
-
+.intro {
+  width: 90vw;
+  min-height: 50vh;
+  margin: -25vh auto 25vh auto;
+  padding: 50px;
+  background-color: #aaaaaa77;
+  border-radius: 10px;
+  font-family: 'Average Sans', sans-serif;
+  font-size: 2.25rem;
+  line-height: 2em;
+  color: #e3cfb6;
+}
+.intro p {
+  margin: 0px;
+}
 .section {
   width: 90vw;
   min-height: 85vh;
